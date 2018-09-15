@@ -32,7 +32,7 @@ chmod +x install
 Compatible with system 64bit(x86_64) & 32bit(i386)
 Work for Debian Distribution like Ubuntu, Linux Mint, Backbox, Kali, Parrot, etc.
 
-Run this script with root access
+Run this script with root access, execute, take a coffee
 </pre>
 
 ## Including Packages
