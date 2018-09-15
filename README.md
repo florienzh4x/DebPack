@@ -21,13 +21,13 @@ Script for Installing Packages for Debian Distribution in one time
 [ Contact : hasanal.bulkiah501@gmail.com   ]
 ```
 
-# How To Install
+## How To Install
 ```bash
 git clone https://github.com/florienzh4x/DebPack.git
 cd DebPack
 chmod +x install
 ```
-# FYI
+## FYI
 <pre>
 Compatible with system 64bit(x86_64) & 32bit(i386)
 Work for Debian Distribution like Ubuntu, Linux Mint, Backbox, Kali, Parrot, etc.
@@ -35,7 +35,7 @@ Work for Debian Distribution like Ubuntu, Linux Mint, Backbox, Kali, Parrot, etc
 Run this script with root access
 </pre>
 
-# Including Packages
+## Including Packages
 <pre>
 ● PHP CLI
 ● PYTHON
@@ -52,7 +52,7 @@ Run this script with root access
 ● KAZAM SCREEN RECORDER
 </pre>
 
-# OS Tested
+## OS Tested
 <pre>
 - Linux Mint x86_64
 - Linux Mint i386
