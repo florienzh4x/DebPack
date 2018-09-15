@@ -8,7 +8,7 @@
 Script for Installing Packages for Debian Distribution in one time
 
 # How To Install
-```
+```bash
 git clone https://github.com/florienzh4x/DebPack.git
 cd DebPack
 chmod +x install
