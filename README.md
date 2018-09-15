@@ -27,13 +27,6 @@ git clone https://github.com/florienzh4x/DebPack.git
 cd DebPack
 chmod +x install
 ```
-## FYI
-<pre>
-Compatible with system 64bit(x86_64) & 32bit(i386)
-Work for Debian Distribution like Ubuntu, Linux Mint, Backbox, Kali, Parrot, etc.
-
-Run this script with root access, execute, take a coffee
-</pre>
 
 ## Including Packages
 <pre>
@@ -60,3 +53,10 @@ Run this script with root access, execute, take a coffee
 - Ubuntu 18.04 i386
 </pre>
 
+## FYI
+<pre>
+Compatible with system 64bit(x86_64) & 32bit(i386)
+Work for Debian Distribution like Ubuntu, Linux Mint, Backbox, Kali, Parrot, etc.
+
+Run this script with root access, execute, take a coffee
+</pre>
