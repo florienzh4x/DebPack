@@ -1,9 +1,9 @@
 #!/bin/bash
-# Debian Package Installer V1.0
+# Debian Packages Installer V1.0
 # Code by Florienzh4x (Monkey B Luffy) 
 # Contact : hasanal.bulkiah501@gmail.com 
 # https://github.com/florienzh4x
-# Including Package
+# Including Packages
 # ● PHP CLI
 # ● PYTHON
 # ● CURL
@@ -43,7 +43,7 @@ ${WHITE}===========================================${CYAN}
 (____/(____)(____/(__)  \_/\_/ \___)(__\_)
 ${WHITE}===========================================
 
-${YELLOW}[ ${GREEN}Debian Package Installer V1.0            ${YELLOW}]
+${YELLOW}[ ${GREEN}Debian Packages Installer V1.0            ${YELLOW}]
 ${YELLOW}[ ${GREEN}Author  : Florienzh4x - BC0DE.NET        ${YELLOW}]
 ${YELLOW}[ ${GREEN}Github  : https://github.com/florienzh4x ${YELLOW}]
 ${YELLOW}[ ${GREEN}Contact : hasanal.bulkiah501@gmail.com   ${YELLOW}]
