@@ -11,12 +11,12 @@
 # ● RUBY
 # ● APACHE2
 # ● MYSQL
-# ● PHPMYADMIN
 # ● GOOGLE CHROME
-# ● FIREFOX 63
 # ● SUBLIME 3
 # ● MOC PLAYER
 # ● KAZAM SCREEN RECORDER
+# ● TEAMVIEWER
+# ● VLC PLAYER
 #
 # COMPATIBLE FOR 64bit(x86_64) & 32bit(i386) systems
 # COMPATIBLE FOR DEBIAN DISTRIBUTION LIKE UBUNTU, LINUX MINT, BACKBOX, KALI, PARROT, ETC.
@@ -56,225 +56,220 @@ banner
 printf "${YELLOW}[${GREEN}=${YELLOW}] Checking Privilege... "
 sleep 0.5
 if [[ ! $USER = "root" ]]; then
-	printf "\n\n"
-	printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}Can't run this script\n"
-	printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}You not Root\n"
-	printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}Try 'sudo su' and run $0 again\n"
-	exit 1;
+  printf "\n\n"
+  printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}Can't run this script\n"
+  printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}You not Root\n"
+  printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}Try 'sudo su' and run $0 again\n"
+  exit 1;
 else
-	printf "${GREEN}Root\n"
-	read -p "Choose Your System (32/64)? " BitSystems;
-	# 64bit(x86_64) System Installer
-	if [[ $BitSystems =~ "64" ]]; then
-		printf "\n${YELLOW}[${GREEN}=${YELLOW}] ${CYAN}Starting... \n\n"
+  printf "${GREEN}Root\n"
+  read -p "Choose Your System (32/64)? " BitSystems;
+  # 64bit(x86_64) System Installer
+  if [[ $BitSystems =~ "64" ]]; then
+    printf "\n${YELLOW}[${GREEN}=${YELLOW}] ${CYAN}Starting... \n\n"
 
-		# INSTALLING PHP CLI
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing PHP\n${WHITE}"
-		cat <(echo "y") | apt-get install php7.2-cli
-		cat <(echo "y") | apt-get install php-curl
-		cat <(echo "y") | apt-get install php-common
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  PHP CLI
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} PHP\n${WHITE}"
+    cat <(echo "y") | apt-get install php7.2-cli
+    cat <(echo "y") | apt-get install php-curl
+    cat <(echo "y") | apt-get install php-common
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING PYTHON
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Python\n${WHITE}"
-		cat <(echo "y") | apt-get install python
-		cat <(echo "y") | apt-get install python3
-		cat <(echo "y") | apt-get install python-pip
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  PYTHON
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Python\n${WHITE}"
+    cat <(echo "y") | apt-get install python
+    cat <(echo "y") | apt-get install python3
+    cat <(echo "y") | apt-get install python-pip
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING CURL
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Curl\n${WHITE}"
-		cat <(echo "y") | apt-get install curl
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  CURL
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Curl\n${WHITE}"
+    cat <(echo "y") | apt-get install curl
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING PERL
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Perl\n${WHITE}"
-		cat <(echo "y") | apt-get install perl
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  PERL
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Perl\n${WHITE}"
+    cat <(echo "y") | apt-get install perl
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING RUBY
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Ruby\n${WHITE}"
-		cat <(echo "y") | apt-get install ruby-full
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  RUBY
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Ruby\n${WHITE}"
+    cat <(echo "y") | apt-get install ruby-full
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING APACHE2 
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Apache Web Server\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install apache2 apache2-doc apache2-utils
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure Apache2 setting manually\n"
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		sleep 2
+    #  APACHE2 
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Apache Web Server\n${WHITE}"
+    apt-get update
+    cat <(echo "y") | apt-get install apache2 apache2-doc apache2-utils
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure Apache2 setting manually\n"
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    sleep 2
 
-		# INSTALLING MYSQL
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing MySQL\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install mysql-client-core-5.7
-		cat <(echo "y") | apt-get install mysql-server
-		ufw allow mysql
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure MySQL setting manually\n"
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		sleep 2
-		
-		# INSTALLING PHPMYADMIN
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing phpMyAdmin\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install phpmyadmin php-mbstring php-gettext
-		phpenmod mbstring
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure phpMyAdmin setting manually\n"
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		sleep 2
+    #  MYSQL
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} MySQL\n${WHITE}"
+    apt-get update
+    cat <(echo "y") | apt-get install mysql-client-core-5.7
+    cat <(echo "y") | apt-get install mysql-server
+    ufw allow mysql
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure MySQL setting manually\n"
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    sleep 2
+    
+    #  GOOGLE CHROME
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Google Chrome\n${WHITE}"
+    wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    dpkg -i chrome.deb
+    apt-get update
+    rm chrome.deb
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING GOOGLE CHROME
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Google Chrome\n${WHITE}"
-		wget -O chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-		dpkg -i chrome.deb
-		apt-get update
-		rm -rf chrome.deb
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  SUBLIME 3
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Sublime Text\n${WHITE}"
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+    apt-get install apt-transport-https
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    apt-get update
+    cat <(echo "y") | apt-get install sublime-text
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING SUBLIME 3
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Sublime Text\n${WHITE}"
-		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-		apt-get install apt-transport-https
-		echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-		apt-get update
-		cat <(echo "y") | apt-get install sublime-text
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  MOC PLAYER
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} MOC Player\n${WHITE}"
+    apt-get update
+    cat <(echo "y") | apt-get install moc moc-ffmpeg-plugin
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING MOC PLAYER
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing MOC Player\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install moc moc-ffmpeg-plugin
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  KAZAM SCREEN RECORDER
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} KAZAM Screen Recoderder\n${WHITE}"
+    cat <(echo "y") | apt-get install kazam
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING FIREFOX 63
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Firefox 63\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install firefox
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  TEAMVIEWER
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Teamviewer\n${WHITE}"
+    wget -O teamviewer.deb https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
+    cat <(echo "y") | apt-get install .teamviewer.deb
+    apt-get update
+    rm teamviewer.deb
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING KAZAM SCREEN RECORDER
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing KAZAM Screen Recoderder\n${WHITE}"
-		cat <(echo "y") | apt-get install kazam
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  VLC
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} VLC Player\n${WHITE}"
+    cat <(echo "y") | apt-get install vlc
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Finishing\n"
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Updating System\n${WHITE}"
-		apt-get update
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Upgrading for get latest package version\n${WHITE}"
-		cat <(echo "y") | apt-get upgrade
-		printf "\n${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		printf "${YELLOW}[${GREEN}!${YELLOW}] Tutorial for configure setting Apache2, MySQL, phpMyAdmin: \n"
-		printf "    ${WHITE}=> ${GREEN}Apache2 ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04\n"
-		printf "    ${WHITE}=> ${GREEN}phpMyAdmin ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04\n"
-		printf "    ${WHITE}=> ${GREEN}MySQL ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04\n\n"
 
-	# 32bit(i386) System Installer
-	elif [[ $BitSystems =~ "32" ]]; then
-		printf "\n${YELLOW}[${GREEN}=${YELLOW}] ${CYAN}Starting... \n\n"
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Finishing\n"
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Updating System\n${WHITE}"
+    apt-get update
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Upgrading for get latest package version\n${WHITE}"
+    cat <(echo "y") | apt-get upgrade
+    printf "\n${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    printf "${YELLOW}[${GREEN}!${YELLOW}] Tutorial for configure setting Apache2, MySQL: \n"
+    printf "    ${WHITE}=> ${GREEN}Apache2 ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04\n"
+    printf "    ${WHITE}=> ${GREEN}MySQL ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04\n\n"
 
-		# INSTALLING PHP CLI
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing PHP\n${WHITE}"
-		cat <(echo "y") | apt-get install php7.2-cli
-		cat <(echo "y") | apt-get install php-curl
-		cat <(echo "y") | apt-get install php-common
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+  # 32bit(i386) System Installer
+  elif [[ $BitSystems =~ "32" ]]; then
+    printf "\n${YELLOW}[${GREEN}=${YELLOW}] ${CYAN}Starting... \n\n"
 
-		# INSTALLING PYTHON
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Python\n${WHITE}"
-		cat <(echo "y") | apt-get install python
-		cat <(echo "y") | apt-get install python3
-		cat <(echo "y") | apt-get install python-pip
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  PHP CLI
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} PHP\n${WHITE}"
+    cat <(echo "y") | apt-get install php7.2-cli
+    cat <(echo "y") | apt-get install php-curl
+    cat <(echo "y") | apt-get install php-common
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING CURL
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Curl\n${WHITE}"
-		cat <(echo "y") | apt-get install curl
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  PYTHON
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Python\n${WHITE}"
+    cat <(echo "y") | apt-get install python
+    cat <(echo "y") | apt-get install python3
+    cat <(echo "y") | apt-get install python-pip
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING PERL
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Perl\n${WHITE}"
-		cat <(echo "y") | apt-get install perl
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  CURL
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Curl\n${WHITE}"
+    cat <(echo "y") | apt-get install curl
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING RUBY
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Ruby\n${WHITE}"
-		cat <(echo "y") | apt-get install ruby-full
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  PERL
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Perl\n${WHITE}"
+    cat <(echo "y") | apt-get install perl
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING APACHE2 
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Apache Web Server\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install apache2 apache2-doc apache2-utils
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure Apache2 setting manually\n"
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		sleep 2
+    #  RUBY
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Ruby\n${WHITE}"
+    cat <(echo "y") | apt-get install ruby-full
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING MYSQL
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing MySQL\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install mysql-client-core-5.7
-		cat <(echo "y") | apt-get install mysql-server
-		ufw allow mysql
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure MySQL setting manually\n"
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		sleep 2
-		
-		# INSTALLING PHPMYADMIN
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing phpMyAdmin\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install phpmyadmin php-mbstring php-gettext
-		phpenmod mbstring
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure phpMyAdmin setting manually\n"
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		sleep 2
+    #  APACHE2 
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Apache Web Server\n${WHITE}"
+    apt-get update
+    cat <(echo "y") | apt-get install apache2 apache2-doc apache2-utils
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure Apache2 setting manually\n"
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    sleep 2
 
-		# INSTALLING GOOGLE CHROME
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Google Chrome\n${WHITE}"
-		wget -O chrome.deb https://dw12.uptodown.com/dwn/LDJGqshbaXnq1ELrbWAkCL8cFCe20UWVrANzQx_ppP2HTiJ6WYGoGd6dxVG6I0x7c_xXtNBvoAv-dz0V40A9Q8lPYYjRly6Nyd-oskV0bc54SDPmg4Q5H6XpZEAIx_X9/iZV2MvNfTWjztkzpk3fQFkuXRLnnTBFU0v40ChZA3yeVJeXoS9Pswx0jTnVgJRz3AvkIGqHYdJ_PorNRXZmFENnc3ldbI7D9HG7uIe6fLHOlbeHG1uXBe590yryNdJGy/xwvf8ZEqLaS8C5TVaYA1OLZNsm3BVBlb5mbTQJrfAeIRzTYdfHzZB7PvNTq6wQmNJP_IgP9drKPBwa6Nu228EjACpfOs0ENsPoPtZOfPaJK0AokGXEghW0Ts82H2pdI3/z9hdBa-XMrHg3vP8bRMbXWGk8QntplAV1-vz7-XzyIPIfpTQDSuPhx6GOAiVc07HPXhYtBhShEnh2RQtzOAH4A==/google-chrome-42-0-2311-90-32-bit-multi-ubu.deb
-		dpkg -i chrome.deb
-		apt-get update
-		rm -rf chrome.deb
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  MYSQL
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} MySQL\n${WHITE}"
+    apt-get update
+    cat <(echo "y") | apt-get install mysql-client-core-5.7
+    cat <(echo "y") | apt-get install mysql-server
+    ufw allow mysql
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}You can configure MySQL setting manually\n"
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    sleep 2
+  
+    #  GOOGLE CHROME
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Google Chrome\n${WHITE}"
+    wget -O chrome.deb https://dw12.uptodown.com/dwn/LDJGqshbaXnq1ELrbWAkCL8cFCe20UWVrANzQx_ppP2HTiJ6WYGoGd6dxVG6I0x7c_xXtNBvoAv-dz0V40A9Q8lPYYjRly6Nyd-oskV0bc54SDPmg4Q5H6XpZEAIx_X9/iZV2MvNfTWjztkzpk3fQFkuXRLnnTBFU0v40ChZA3yeVJeXoS9Pswx0jTnVgJRz3AvkIGqHYdJ_PorNRXZmFENnc3ldbI7D9HG7uIe6fLHOlbeHG1uXBe590yryNdJGy/xwvf8ZEqLaS8C5TVaYA1OLZNsm3BVBlb5mbTQJrfAeIRzTYdfHzZB7PvNTq6wQmNJP_IgP9drKPBwa6Nu228EjACpfOs0ENsPoPtZOfPaJK0AokGXEghW0Ts82H2pdI3/z9hdBa-XMrHg3vP8bRMbXWGk8QntplAV1-vz7-XzyIPIfpTQDSuPhx6GOAiVc07HPXhYtBhShEnh2RQtzOAH4A==/google-chrome-42-0-2311-90-32-bit-multi-ubu.deb
+    dpkg -i chrome.deb
+    apt-get update
+    rm -rf chrome.deb
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING SUBLIME 3
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Sublime Text\n${WHITE}"
-		wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-		apt-get install apt-transport-https
-		echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-		apt-get update
-		cat <(echo "y") | apt-get install sublime-text
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  SUBLIME 3
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Sublime Text\n${WHITE}"
+    wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+    apt-get install apt-transport-https
+    echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+    apt-get update
+    cat <(echo "y") | apt-get install sublime-text
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING MOC PLAYER
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing MOC Player\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install moc moc-ffmpeg-plugin
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  MOC PLAYER
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} MOC Player\n${WHITE}"
+    apt-get update
+    cat <(echo "y") | apt-get install moc moc-ffmpeg-plugin
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING FIREFOX 63
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing Firefox 63\n${WHITE}"
-		apt-get update
-		cat <(echo "y") | apt-get install firefox
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  KAZAM SCREEN RECORDER
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} KAZAM Screen Recoderder\n${WHITE}"
+    cat <(echo "y") | apt-get install kazam
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    
+    #  TEAMVIEWER
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} Teamviewer\n${WHITE}"
+    wget -O teamviewer.deb https://download.teamviewer.com/download/linux/teamviewer_i386.deb
+    cat <(echo "y") | apt-get install .teamviewer.deb
+    apt-get update
+    rm teamviewer.deb
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		# INSTALLING KAZAM SCREEN RECORDER
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Installing KAZAM Screen Recoderder\n${WHITE}"
-		cat <(echo "y") | apt-get install kazam
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    #  VLC
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN} VLC Player\n${WHITE}"
+    cat <(echo "y") | apt-get install vlc
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
 
-		printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Finishing\n"
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Updating System\n${WHITE}"
-		apt-get update
-		printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Upgrading for get latest package version\n${WHITE}"
-		cat <(echo "y") | apt-get upgrade
-		printf "\n${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
-		printf "${YELLOW}[${GREEN}!${YELLOW}] Tutorial for configure setting Apache2, MySQL, phpMyAdmin: \n"
-		printf "    ${WHITE}=> ${GREEN}Apache2 ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04\n"
-		printf "    ${WHITE}=> ${GREEN}phpMyAdmin ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04\n"
-		printf "    ${WHITE}=> ${GREEN}MySQL ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04\n\n"
-	else
-		printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}Please choose your system\n\n"
-		exit 1
-	fi
+    printf "${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}Finishing\n"
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Updating System\n${WHITE}"
+    apt-get update
+    printf "${YELLOW}[${GREEN}!${YELLOW}] ${CYAN}Upgrading for get latest package version\n${WHITE}"
+    cat <(echo "y") | apt-get upgrade
+    printf "\n${YELLOW}[${GREEN}+${YELLOW}] ${CYAN}DONE\n\n"
+    printf "${YELLOW}[${GREEN}!${YELLOW}] Tutorial for configure setting Apache2, MySQL: \n"
+    printf "    ${WHITE}=> ${GREEN}Apache2 ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-ubuntu-18-04\n"
+    printf "    ${WHITE}=> ${GREEN}MySQL ${WHITE}= ${CYAN}https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-18-04\n\n"
+  else
+    printf "${YELLOW}[${RED}!${YELLOW}] ${CYAN}Please choose your system\n\n"
+    exit 1
+  fi
 fi
