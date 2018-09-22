@@ -37,12 +37,12 @@ chmod +x install
 ● RUBY
 ● APACHE2
 ● MYSQL
-● PHPMYADMIN
 ● GOOGLE CHROME
-● FIREFOX 63
 ● SUBLIME 3
 ● MOC PLAYER
 ● KAZAM SCREEN RECORDER
+● TEAMVIEWER
+● VLC PLAYER
 </pre>
 
 ## OS Tested
@@ -60,3 +60,13 @@ Work for Debian Distribution like Ubuntu, Linux Mint, Backbox, Kali, Parrot, etc
 
 Run this script with root access, execute, take a coffee.
 </pre>
+
+## Update
+<pre>
+Remove :
+- PHPMYADMIN
+- FIREFOX 63
+
+Add New :
+- TEAMVIEWER
+- VLC PLAYER
